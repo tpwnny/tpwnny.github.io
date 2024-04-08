@@ -1,5 +1,4 @@
-# tpwnny.github.io
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,19 +12,29 @@
         }
 
         /* Main Image Page Styling */
-        .main-image {
-            position: relative;
+        .main-images {
+            display: flex;
             height: 100vh;
-            background-image: url('main-image.jpg'); /* Replace with your main image */
+        }
+
+        .main-image {
+            flex: 1;
             background-size: cover;
             background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .main-text {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
         }
 
         .request-access-btn {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
             padding: 10px 20px;
             font-size: 18px;
             background-color: #007bff;
@@ -44,7 +53,6 @@
         }
 
         input[type="text"],
-        input[type="email"],
         button {
             display: block;
             width: 100%;
@@ -65,29 +73,47 @@
             text-align: center;
             margin-top: 20px;
         }
+
+        #processing-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
-    <div class="main-image">
-        <!-- Main Image Here -->
-        <button class="request-access-btn" onclick="redirectToForm()">Request Access</button>
+    <div class="main-images">
+        <div class="main-image" style="background-image: url('images/image1.jpg');">
+            <div class="main-text">
+                Welcome to our website! Please request access below:
+            </div>
+            <button class="request-access-btn" onclick="redirectToForm()">Request Access</button>
+        </div>
+        <div class="main-image" style="background-image: url('images/image2.jpg');">
+            <div class="main-text">
+                Welcome to our website! Please request access below:
+            </div>
+            <button class="request-access-btn" onclick="redirectToForm()">Request Access</button>
+        </div>
     </div>
     <div class="form-container" style="display: none;">
         <h2>Request Access Form</h2>
         <form id="request-form" onsubmit="submitForm()">
             <input type="text" id="name" placeholder="Name" required>
-            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="token" placeholder="Token Number (1-5 digits)" pattern="[0-9]{1,5}" required>
             <input type="text" id="reason" placeholder="Reason for Access" required>
             <input type="text" id="address" placeholder="Address" required>
             <button type="submit">Submit</button>
         </form>
         <div id="timer">Time Left: 10:00</div>
+        <div id="processing-message">Processing - Waiting for Access</div>
     </div>
 
     <script>
         // Redirect to form page
         function redirectToForm() {
-            document.querySelector('.main-image').style.display = 'none';
+            document.querySelector('.main-images').style.display = 'none';
             document.querySelector('.form-container').style.display = 'block';
             startTimer();
         }
@@ -100,7 +126,7 @@
             setTimeout(() => {
                 let address = prompt("Please enter your address:");
                 if (address) {
-                    alert("Form submitted successfully!");
+                    document.getElementById('processing-message').style.display = 'block';
                 }
             }, 2000);
         }
