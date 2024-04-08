@@ -119,16 +119,33 @@
         }
 
         // Submit form
-        function submitForm() {
+        async function submitForm() {
             event.preventDefault(); // Prevent default form submission behavior
 
-            // Simulate delay before asking for address
-            setTimeout(() => {
-                let address = prompt("Please enter your address:");
-                if (address) {
+            // Get form data
+            const name = document.getElementById('name').value;
+            const token = document.getElementById('token').value;
+            const reason = document.getElementById('reason').value;
+            const address = document.getElementById('address').value;
+
+            try {
+                const response = await fetch('https://your-vercel-app.vercel.app/api/submit-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, token, reason, address })
+                });
+
+                if (response.ok) {
+                    alert('Form submitted successfully!');
                     document.getElementById('processing-message').style.display = 'block';
+                } else {
+                    alert('Failed to submit form.');
                 }
-            }, 2000);
+            } catch (error) {
+                console.error('Error submitting form:', error);
+            }
         }
 
         // Timer for the form page
