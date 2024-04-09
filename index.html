@@ -14,6 +14,8 @@
         /* Main Image Page Styling */
         .main-images {
             display: flex;
+            justify-content: space-around;
+            align-items: center;
             height: 100vh;
         }
 
@@ -26,6 +28,12 @@
             align-items: center;
             flex-direction: column;
             text-align: center;
+            width: 45%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin: 10px;
         }
 
         .main-text {
@@ -93,7 +101,7 @@
         </div>
         <div class="main-image" style="background-image: url('images/image2.jpg');">
             <div class="main-text">
-                Wanna see it ? pay and get:
+                Wanna see it? Pay and get:
             </div>
             <button class="request-access-btn" onclick="redirectToForm()">Request Access</button>
         </div>
@@ -173,4 +181,5 @@
         }
     </script>
 </body>
-</html>
+    </html>
+    
