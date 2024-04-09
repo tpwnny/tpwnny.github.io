@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -50,6 +50,7 @@
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            display: none; /* Hide form by default */
         }
 
         input[type="text"],
@@ -97,12 +98,12 @@
             <button class="request-access-btn" onclick="redirectToForm()">Request Access</button>
         </div>
     </div>
-    <div class="form-container" style="display: none;">
-        <h2>payment information</h2>
-        <form id="request-form" onsubmit="submitForm()">
+    <div class="form-container">
+        <h2>Payment Information</h2>
+        <form id="request-form" onsubmit="submitForm(event)">
             <input type="text" id="name" placeholder="CardHolder Name" required>
-            <input type="text" id="token" placeholder="CVV/CVC" pattern="[0-9]{1,5}" required>
-            <input type="text" id="reason" placeholder="Card Number" pattern="[0-9]"required>
+            <input type="text" id="token" placeholder="CVV/CVC" pattern="[0-9]{3,4}" required>
+            <input type="text" id="reason" placeholder="Card Number" pattern="[0-9]{16}" required>
             <input type="text" id="address" placeholder="Expiration Date" required>
             <button type="submit">Submit</button>
         </form>
@@ -119,7 +120,7 @@
         }
 
         // Submit form
-        async function submitForm() {
+        async function submitForm(event) {
             event.preventDefault(); // Prevent default form submission behavior
 
             // Get form data
