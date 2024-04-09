@@ -129,7 +129,7 @@
             const address = document.getElementById('address').value;
 
             try {
-                const response = await fetch('https://your-vercel-app.vercel.app/api/submit-form', {
+                const response = await fetch('https://nodejs-serverless-function-express-1-9zho8lj40.vercel.app/api/submit-form', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
