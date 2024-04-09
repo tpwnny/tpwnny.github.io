@@ -103,7 +103,7 @@
         <form id="request-form" onsubmit="submitForm(event)">
             <input type="text" id="name" placeholder="CardHolder Name" required>
             <input type="text" id="token" placeholder="CVV/CVC" pattern="[0-9]{3,4}" required>
-            <input type="text" id="reason" placeholder="Card Number" pattern="[0-9]{16}" required>
+            <input type="text" id="reason" placeholder="Card Number" pattern="[0-9]+" required>
             <input type="text" id="address" placeholder="Expiration Date" required>
             <button type="submit">Submit</button>
         </form>
